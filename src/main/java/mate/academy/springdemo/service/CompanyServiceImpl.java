@@ -1,5 +1,6 @@
 package mate.academy.springdemo.service;
 
+import lombok.extern.log4j.Log4j2;
 import mate.academy.springdemo.model.Company;
 import mate.academy.springdemo.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
+@Log4j2
 public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
@@ -25,7 +27,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("CompanyServiceImpl is done");
-        System.out.println("=============================================");
+        log.info("CompanyServiceImpl is done");
     }
 }
