@@ -3,8 +3,10 @@ package mate.academy.springdemo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,10 +20,10 @@ import javax.persistence.Table;
 @Table(name = "skills")
 public class Skills {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private  String language;
     private  String level;
-    @ManyToOne
+    @ManyToOne()
     private Developer developer;
 }

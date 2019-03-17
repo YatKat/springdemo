@@ -22,7 +22,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(value = "mate.academy.springdemo")
 @PropertySource("classpath:database.properties")
-@EnableJpaRepositories("mate.academy.springdemo.repository")
+@EnableJpaRepositories("mate.academy.springdemo")
 public class Config {
     private static final String DRIVER = "driver";
     private static final String URL = "url";

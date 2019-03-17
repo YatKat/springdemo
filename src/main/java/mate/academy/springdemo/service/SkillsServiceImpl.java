@@ -1,5 +1,6 @@
 package mate.academy.springdemo.service;
 
+import lombok.extern.log4j.Log4j2;
 import mate.academy.springdemo.model.Developer;
 import mate.academy.springdemo.model.Skills;
 import mate.academy.springdemo.repository.SkillsRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
+@Log4j2
 public class SkillsServiceImpl implements SkillsService {
 
     @Autowired
@@ -22,12 +24,11 @@ public class SkillsServiceImpl implements SkillsService {
 
     @Override
     public Skills getSkillsById(Long id) {
-        return skillsRepository.getOne(id);
+        return skillsRepository.findById(id).get();
     }
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("SkillsServiceImpl is done");
-        System.out.println("=============================================");
+        log.info("SkillsServiceImpl is done");
     }
 }
